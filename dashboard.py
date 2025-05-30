@@ -63,18 +63,7 @@ def load_stocks_data():
     """Load stocks data with fallback to sample data"""
     container_name = get_container_name()
     df = load_data_from_azure(container_name, "stocks.csv")
-    if df is None:
-        st.warning("Failed to load stocks data from Azure. Using sample data instead.")
-        df = pd.DataFrame({
-            'stock_id': [1, 2, 3, 4, 5],
-            'industry_id': [1, 2, 1, 3, 2],
-            'sector_id': [1, 1, 1, 2, 1],
-            'stock_symbol': ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'META'],
-            'stock_name': ['Apple Inc.', 'Microsoft Corp', 'Alphabet Inc.', 'Amazon.com Inc.', 'Meta Platforms Inc.'],
-            'stock_price': [150.25, 320.45, 2800.75, 3200.10, 325.60],
-            'market_cap': [2500000000000, 2400000000000, 1800000000000, 1600000000000, 900000000000],
-            'last_updated': ['2025-05-17'] * 5
-        })
+
     return df
 
 @st.cache_data(ttl=300)
@@ -82,15 +71,7 @@ def load_industries_data():
     """Load industries data with fallback to sample data"""
     container_name = get_container_name()
     df = load_data_from_azure(container_name, "industries.csv")
-    if df is None:
-        st.warning("Failed to load industries data from Azure. Using sample data instead.")
-        df = pd.DataFrame({
-            'industry_id': [1, 2, 3],
-            'sector_id': [1, 1, 2],
-            'industry_name': ['Technology Services', 'Software', 'E-commerce'],
-            'market_cap': [5000000000000, 4000000000000, 2500000000000],
-            'last_updated': ['2025-05-17'] * 3
-        })
+
     return df
 
 @st.cache_data(ttl=300)
@@ -98,14 +79,7 @@ def load_sectors_data():
     """Load sectors data with fallback to sample data"""
     container_name = get_container_name()
     df = load_data_from_azure(container_name, "sectors.csv")
-    if df is None:
-        st.warning("Failed to load sectors data from Azure. Using sample data instead.")
-        df = pd.DataFrame({
-            'sector_id': [1, 2, 3],
-            'sector_name': ['Technology', 'Consumer Cyclical', 'Healthcare'],
-            'market_cap': [10000000000000, 5000000000000, 4000000000000],
-            'last_updated': ['2025-05-17'] * 3
-        })
+   
     return df
 
 @st.cache_data(ttl=300)
@@ -113,29 +87,7 @@ def load_historical_stocks_data():
     """Load historical stocks data with fallback to sample data"""
     container_name = get_container_name()
     df = load_data_from_azure(container_name, "hist_stocks.csv")
-    if df is None:
-        st.warning("Failed to load historical data from Azure. Using sample data instead.")
-        # Create sample historical data as fallback
-        symbols = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'META']
-        dates = pd.date_range(end=pd.Timestamp.now(), periods=30)
-        data = []
-        
-        for symbol in symbols:
-            base_price = {'AAPL': 150, 'MSFT': 320, 'GOOGL': 2800, 'AMZN': 3200, 'META': 325}[symbol]
-            for date in dates:
-                price = base_price * (1 + (0.1 * (pd.Timestamp.now() - date).days / 30)) * (1 + 0.02 * (np.random.random() - 0.5))
-                market_cap = price * {'AAPL': 16.5, 'MSFT': 7.5, 'GOOGL': 0.65, 'AMZN': 0.5, 'META': 2.75}[symbol] * 1_000_000_000
-                
-                data.append({
-                    'stock_symbol': symbol,
-                    'stock_name': {'AAPL': 'Apple Inc.', 'MSFT': 'Microsoft Corp', 'GOOGL': 'Alphabet Inc.', 
-                                'AMZN': 'Amazon.com Inc.', 'META': 'Meta Platforms Inc.'}[symbol],
-                    'stock_price': round(price, 2),
-                    'market_cap': int(market_cap),
-                    'last_updated': date.strftime('%Y-%m-%d')
-                })
-        
-        df = pd.DataFrame(data)
+
     
     # Ensure date column is datetime
     if 'last_updated' in df.columns:
