@@ -123,7 +123,7 @@ def load_historical_stocks_data():
         for symbol in symbols:
             base_price = {'AAPL': 150, 'MSFT': 320, 'GOOGL': 2800, 'AMZN': 3200, 'META': 325}[symbol]
             for date in dates:
-                price = base_price * (1 + (0.1 * (pd.Timestamp.now() - date).days / 30)) * (1 + 0.02 * (pd.np.random.random() - 0.5))
+                price = base_price * (1 + (0.1 * (pd.Timestamp.now() - date).days / 30)) * (1 + 0.02 * (np.random.random() - 0.5))
                 market_cap = price * {'AAPL': 16.5, 'MSFT': 7.5, 'GOOGL': 0.65, 'AMZN': 0.5, 'META': 2.75}[symbol] * 1_000_000_000
                 
                 data.append({
