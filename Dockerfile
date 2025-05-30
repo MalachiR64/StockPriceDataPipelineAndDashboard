@@ -1,4 +1,4 @@
-FROM apache/airflow:3.0.0
+FROM apache/airflow:3.0.1
 
 #install dependencies for the python operator
 COPY requirements.txt .
@@ -21,5 +21,3 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 USER airflow
-WORKDIR /app
-COPY dashboard.py dashboard.py
