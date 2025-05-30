@@ -1,0 +1,4 @@
+AIRFLOW_UID=50000
+CONNECT_STR_BLOB=yourstring
+CONNECT_STR_SQL=yourstring
+CONTAINER_NAME=yourcontainername

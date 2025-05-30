@@ -1,0 +1,16 @@
+sqlalchemy
+azure.identity
+azure.storage.blob
+azure-mgmt-resource
+azure-mgmt-storage
+apache-airflow-providers-microsoft-azure
+apache-airflow-providers-odbc
+pyodbc
+pandas
+yfinance
+tenacity
+yahoo_fin
+streamlit
+plotly
+numpy
+python-dotenv
