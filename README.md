@@ -1,16 +1,18 @@
-# ELT Pipeline for Stocks
+# S&P 500 Stocks ETL Pipeline and Dashboard
+![System architechure](images/System-Architechure-Stock-ETL.png/)
 
 ## Overview
-This project implements an ELT (Extract, Load, Transform) pipeline for stock market data, specifically focusing on S&P 500 companies. The pipeline extracts stock-related data, processes it, and loads it into a database for further analysis.
+This project is an End to End ETL pipeline and dashboard for tracking real-time and historical data on S&P 500 companies. It automates the extraction of stock data from Yahoo Finance and S&P 500 tickers from Wikipedia, then stores the processed data in Azure Blob Storage and an Azure SQL Database. Using Airflow, the pipeline runs hourly updates to stock prices and monthly refreshes of all company and market data. A Streamlit dashboard—deployed both locally and on Streamlit Cloud—allows users to explore market overviews, filter stocks by sector, analyze industry trends, and visualize historical price performance. The entire system is dockerized for portability and easy deployment.
 
+**Link to streamlit cloud**: [Live Dashboard](https://malachir64-stockpricedatapipelineanddashboard-dashboard-xvtll9.streamlit.app/)
+![System architechure](images/stocks-dashboard.png/)
 ## Table of Contents
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Airflow](#airflow)
+- [Streamlit Dashboard](#streamlit-dashboard)
 - [Database Design](#database-design)
-- [Images](#images)
-- [Future Improvements](#future-improvements)
 - [Contributors](#contributors)
 
 ## Features
@@ -18,59 +20,113 @@ This project implements an ELT (Extract, Load, Transform) pipeline for stock mar
 - Fetches stock data (name, industry, sector, price, market cap) using Yahoo Finance
 - Organizes data into CSV and JSON formats
 - Assigns unique IDs for stocks, industries, and sectors
-- Stores data in Azure Blob Storage and an  Azure SQL database
+- Stores data in Azure Blob Storage and an Azure SQL database
+- **Historical tracking** of stock prices via `hist_stocks.csv`
+- **Airflow DAGs** for hourly and monthly automation
+- **Streamlit dashboard** for real-time data exploration
+- **Dockerized setup** for seamless deployment
+- **Deployed to streamlit cloud**
 
 ## Project Structure
 ```
-
-├── scripts
-│   ├── tickergenerator.py          # Generates and stores S&P 500 tickers
-│   ├── main.py                     # Main ETL processing script
-│   ├── uploadToAzureBlobAndSQL.py  # Uploads data to Azure and SQL
-│   ├── stockPriceUpdater.py        # Updates stock prices daily
-│   ├── models.py                   # Defines database schema using SQLAlchemy
-├── README.md                       # Project documentation
-├── requirements.txt                # List of needed dependencies for the scripts
+├── dag/
+│   ├── scripts/
+│   │   ├── tickergenerator.py           # Initializes JSONs CSVs with S&P 500 tickers
+│   │   ├── main.py                      # Pulls fresh data & generates all CSVs, including history
+│   │   ├── uploadToAzureBlobAndSQL.py   # Uploads CSVs to Azure Blob and populates Azure SQL
+│   │   ├── stockPriceUpdater.py         # Hourly price updater with historical appending
+│   │   ├── models.py                    # SQLAlchemy models for Stocks, Industries, and Sectors
+│   ├── hourlyDag.py                     # Airflow DAG to run `stockPriceUpdater.py` hourly
+│   ├── monthlyDag.py                    # Airflow DAG for full monthly refresh of all data
+├── dashboard.py                         # Streamlit dashboard for stock insights
+├── Dockerfile                           # Docker setup
+├── docker-compose.yaml                  # Launches Airflow + Streamlit
+├── requirements.txt                     # Python dependencies
+├── env-example.txt                      # Environment variable template
 ```
 
 ## Installation
-### Prerequisites
-- Python 3.7+
-- Install dependencies:
-  ```bash
-    pip install -r requirements.txt
-  ```
 
-## Usage
-### 1. Generate Tickers
+### Prerequisites
+- Docker & Docker Compose
+- Python 3.7+ (for standalone script testing)
+- Azure Blob Storage and Azure SQL setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/MalachiR64/StockPriceDataPipelineAndDashboard.git
+cd StockPriceDataPipelineAndDashboard
+```
+
+### 2. Create `.env` file
+Copy `env-example.txt` to `.env` and fill in your credentials:
+```env
+CONNECT_STR_BLOB=your_azure_blob_connection_string
+CONNECT_STR_SQL=your_azure_sql_connection_string
+CONTAINER_NAME=your_container_name
+```
+
+### 3. Build and start the application
+```bash
+docker compose up --build
+```
+
+## Airflow
+
+### DAGs (Automated in Docker)
+
+- `hourly_stock_price_update`: Runs `stockPriceUpdater.py` every hour.
+- `monthly_stock_update`: Refreshes all tickers and data monthly using:
+  - `tickergenerator.py`
+  - `main.py`
+  - `uploadToAzureBlobAndSQL.py`
+
+Access the Airflow UI:  
+`http://localhost:8080`
+
+### Manual Script Usage (Optional)
+
 ```bash
 python scripts/tickergenerator.py
-```
-This script fetches the S&P 500 tickers and initializes the necessary JSON and CSV files.
-
-### 2. Fetch and Process Stock Data
-```bash
 python scripts/main.py
-```
-This script fetches stock data, assigns unique IDs, and updates the CSV files.
-
-### 3. Upload Data to the Azure Blob storage and SQL Relational Database
-```bash
 python scripts/uploadToAzureBlobAndSQL.py
-```
-
-This script uploads the processed data to Azure Blob Storage and an SQL database.
-
-### 4. Update the stock prices and market cap for the stocks
-```bash
 python scripts/stockPriceUpdater.py
 ```
-This script updates stock prices and market capitalization for existing stocks.
+## Streamlit Dashboard
+The dashboard provides real-time insights into S&P 500 stock data pulled from Azure Blob Storage.
+Access the dashboard in your browser:  
+`http://localhost:8501`
+
+tabs:
+- **Market Overview** Key metrics like total stocks, average price, and market cap distribution by sector.
+![System architechure](images/main-dashboard.png/)
+
+- **Stocks** Search and filter stocks by name or sector, and view detailed info including price and market cap.
+![System architechure](images/stocks-dashboard.png/)
+- **Industries & Sectors**  Explore total market caps by industry and sector, and analyze their relationships.
+![System architechure](images/sect-indust-dashboard.png/)
+
+- **Historical Performance** (from `hist_stocks.csv`) Visualize stock price trends over time using data from `hist_stocks.csv`, with support for multi-stock comparison and date filtering.
+![System architechure](images/hist-stocks-dashboard.png/)
+
+
+
+
+
+
 
 ## Database Design
-The SQL database consists of three main tables: `Stocks`, `Industries`, and `Sectors`. Below is an overview of each table and its purpose:
 
-### Tables
+### CSV Files in Blob Storage
+The pipeline stores processed data as CSVs in Azure Blob Storage, including:
+- `stocks.csv`, `industries.csv`, `sectors.csv` for current values
+- `hist_stocks.csv` for historical stock price tracking over time
+
+![CSV Files in Blob Storage](images/BlobStorage.png)
+
+
+### SQL Tables
+The SQL database consists of three main tables: `Stocks`, `Industries`, and `Sectors`.
 | Table Name  | Description |
 |-------------|-------------|
 | **Stocks**  | Stores information about each stock, including its ticker, name, industry, and sector. |
@@ -78,6 +134,7 @@ The SQL database consists of three main tables: `Stocks`, `Industries`, and `Sec
 | **Sectors**  | Represents high-level industry sectors, grouping multiple industries together. |
 
 ### Schema
+
 #### **Stocks Table**
 | Column Name   | Data Type    | Description |
 |--------------|-------------|-------------|
@@ -88,7 +145,9 @@ The SQL database consists of three main tables: `Stocks`, `Industries`, and `Sec
 | name         | VARCHAR(255) | Company name |
 | price        | FLOAT        | Current stock price |
 | market_cap   | FLOAT        | Market capitalization |
-| last_updated | DATETIME     | Last updated timestamp | 
+| last_updated | DATETIME     | Last updated timestamp |
+
+![SQL Database Schema](images/sqlschemaStocks.png)
 
 #### **Industries Table**
 | Column Name  | Data Type    | Description |
@@ -97,8 +156,9 @@ The SQL database consists of three main tables: `Stocks`, `Industries`, and `Sec
 | sector_id   | INT (FK)     | Foreign key linking to Sectors table |
 | name        | VARCHAR(255) | Industry name |
 | total_market_cap   | FLOAT        | Total market cap of the industry |
-| last_updated | DATETIME     | Last updated timestamp | 
+| last_updated | DATETIME     | Last updated timestamp |
 
+![SQL Database Schema](images/sqlschemaIndustries.png)
 
 #### **Sectors Table**
 | Column Name | Data Type    | Description |
@@ -106,30 +166,11 @@ The SQL database consists of three main tables: `Stocks`, `Industries`, and `Sec
 | sector_id         | INT (PK)     | Unique identifier for each sector |
 | name       | VARCHAR(255) | Sector name |
 | total_market_cap   | FLOAT        | Total market cap of the sector |
-| last_updated | DATETIME     | Last updated timestamp | 
+| last_updated | DATETIME     | Last updated timestamp |
 
-## Images
-Below are visual representations of the data in Azure Blob Storage and the SQL database schema:
 
-### CSV Files in Blob Storage
-![CSV Files in Blob Storage](images/blobstorage.png)
-
-### SQL Database
-![SQL Database Schema](images/sqlschemaStocks.png)
-![SQL Database Schema](images/sqlschemaIndustries.png)
 ![SQL Database Schema](images/sqlschemaSectors.png)
 
-## Future Improvements
-- **Airflow DAG Implementation:**  
-  - **Daily DAG (`daily_stock_update_dag.py`)**: Automates daily stock price updates by running `stockPriceUpdater.py`.  
-  - **Quarterly DAG (`quarterly_data_update_dag.py`)**: Runs every quarter to update the ticker list and perform a full data refresh.  
-    - Executes:  
-      - `tickersgenerator.py` to update the stock tickers  
-      - `main.py` to extract and process stock data  
-      - `uploadToAzureBlobAndSQL.py` to upload updated data to Azure and SQL 
-- Implement parallel processing for faster data retrieval
-- Enhance error handling and logging
-- Extend support for additional stock indices
 
 ## Contributors
-- Malachi Rosario 
+- Malachi Rosario
