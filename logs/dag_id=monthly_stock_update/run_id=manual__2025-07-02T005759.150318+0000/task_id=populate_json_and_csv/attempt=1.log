@@ -1,0 +1,10 @@
+{"timestamp":"2025-07-02T00:58:06.927108","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-07-02T00:58:06.928469","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-07-02T00:58:08.852052Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T00:58:08.852422Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T00:58:08.852886Z","level":"info","event":"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T00:58:08.853193Z","level":"info","event":"             Install using:","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T00:58:08.853517Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T00:58:08.853852Z","level":"info","event":"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T00:58:08.854245Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-02T01:08:50.620206","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

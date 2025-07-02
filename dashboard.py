@@ -17,7 +17,7 @@ st.set_page_config(
 
 # UI Header
 st.title("📊 S&P 500 Stocks Dashboard")
-st.markdown("### End to End ETL Data Pipeline for all the stocks in the s&P 500")
+st.markdown("### End to End ETL Data Pipeline for all the stocks in the S&P 500")
 
 # Connect to Azure Blob Storage
 @st.cache_resource

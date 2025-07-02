@@ -2486,3 +2486,99 @@
 {"timestamp":"2025-06-10T03:36:06.844505Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
 {"timestamp":"2025-06-10T03:36:06.844727Z","level":"info","event":"","chan":"stdout","logger":"processor"}
 {"timestamp":"2025-06-10T03:36:06.844929Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:37.643584","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:36:38.705830Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:38.706243Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:38.706503Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:38.706720Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:38.706980Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:38.707219Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:36:38.707462Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:09.333502","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:37:10.418214Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:10.418563Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:10.418827Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:10.419037Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:10.419306Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:10.419516Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:10.419718Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:41.229877","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:37:42.308684Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:42.309043Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:42.309334Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:42.309572Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:42.309825Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:42.310118Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:37:42.310354Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:13.394082","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:38:14.445690Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:14.446213Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:14.446612Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:14.446971Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:14.447382Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:14.447714Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:14.447997Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:45.533724","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:38:46.571792Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:46.572126Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:46.572342Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:46.572534Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:46.572696Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:46.572972Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:38:46.573159Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:17.554517","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:39:18.571778Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:18.572126Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:18.572365Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:18.572569Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:18.572812Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:18.573051Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:18.573318Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:49.423412","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:39:50.326255Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:50.326594Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:50.326950Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:50.327263Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:50.327478Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:50.327682Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:39:50.327871Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:20.786285","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:40:21.709908Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:21.710329Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:21.710576Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:21.710831Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:21.711113Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:21.711394Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:21.711631Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:52.392299","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:40:53.458272Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:53.458635Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:53.458869Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:53.459115Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:53.459340Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:53.459577Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:40:53.459821Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:24.666576","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T03:41:25.764305Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:25.764755Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:25.765079Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:25.765355Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:25.765640Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:25.765924Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T03:41:25.766269Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:30:04.682947","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T04:44:39.708132Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:44:39.709593Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:44:39.709931Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:44:39.710260Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:44:39.710593Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:44:39.710934Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:44:39.711211Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:10.793485","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/monthlyDag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T04:45:12.035214Z","level":"info","event":"Warning - Certain functionality","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:12.035782Z","level":"info","event":"             requires requests_html, which is not installed.","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:12.036299Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:12.036789Z","level":"info","event":"             Install using:","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:12.037221Z","level":"info","event":"             pip install requests_html","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:12.037722Z","level":"info","event":"","chan":"stdout","logger":"processor"}
+{"timestamp":"2025-06-10T04:45:12.038161Z","level":"info","event":"             After installation, you may have to restart your Python session.","chan":"stdout","logger":"processor"}

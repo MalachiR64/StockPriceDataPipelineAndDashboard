@@ -24,7 +24,15 @@ def files_blob_upload(files_to_upload,container_client):
         except Exception as e:
             print(f"Failed to upload {file}: {e}")
 
-
+def blob_exists(container_client, blob_name):
+    """Check if a blob exists in the container"""
+    try:
+        blob_client = container_client.get_blob_client(blob_name)
+        blob_client.get_blob_properties()
+        return True
+    except Exception:
+        return False
+    
 def main():
     #name of the files 
     industries_json ='industries.json'
@@ -76,24 +84,32 @@ def main():
     blob_list = container_client.list_blobs()
    
 
-    if hist_stocks_csv in blob_list:
-        current_hist_df = pd.read_csv(os.path.join(FILES_DIR,hist_stocks_csv))
+    if blob_exists(container_client, hist_stocks_csv):
+        print(f"{hist_stocks_csv} exists in blob storage. Downloading and appending new data...")
         try:
+            # Download existing historical data from blob
             blob_client = container_client.get_blob_client(hist_stocks_csv)
             existing_hist_df = pd.read_csv(StringIO(blob_client.download_blob().readall().decode('utf-8')))
-            # Append current data to existing data without headers
+            
+            # Read current historical data from local file
+            current_hist_df = pd.read_csv(os.path.join(FILES_DIR, hist_stocks_csv))
+            
+            # Append current data to existing data
             combined_hist_df = pd.concat([existing_hist_df, current_hist_df], ignore_index=True)
 
-            # Remove any duplicate rows if needed
+            # Remove any duplicate rows if needed (optional, based on your data)
             combined_hist_df = combined_hist_df.drop_duplicates()
 
-            # Save the combined dataframe back to CSV
+            # Save the combined dataframe back to local CSV file
             combined_hist_df.to_csv(os.path.join(FILES_DIR, hist_stocks_csv), index=False)
 
-            print(f"Downloaded: {hist_stocks_csv}")   
+            print(f"Successfully combined historical data. Total rows: {len(combined_hist_df)}")   
         except Exception as e:
-            print(f"Failed to download {hist_stocks_csv}: {e}")
-
+            print(f"Failed to download and combine {hist_stocks_csv}: {e}")
+            print("Using only current data...")
+    else:
+        print(f"{hist_stocks_csv} does not exist in blob storage. Creating new historical file...")
+        # The file already exists locally from the main.py script, so we just use it as is
     # List of files to upload
     files_to_upload_to_blob = [ "industries.csv", "sectors.csv", "stocks.csv","hist_stocks.csv"]
     files_blob_upload(files_to_upload_to_blob,container_client)
