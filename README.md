@@ -122,7 +122,7 @@ The pipeline stores processed data as CSVs in Azure Blob Storage, including:
 - `stocks.csv`, `industries.csv`, `sectors.csv` for current values
 - `hist_stocks.csv` for historical stock price tracking over time
 
-![CSV Files in Blob Storage](images/BlobStorage.png)
+![CSV Files in Blob Storage](images/BlobStorage.png/)
 
 
 ### SQL Tables
